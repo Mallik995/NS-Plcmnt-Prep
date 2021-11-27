@@ -34,3 +34,65 @@ stud1.run();
 console.log("chaining of methods can be done by 'adding return-stmt'");
 stud1.run().home();
 stud1.home().fn(); // this is bit tricky please observe this carefully
+
+
+
+// Inheritance
+console.log("Inheritance in JS ****************************************************** ");
+class Instructor extends Student {
+    takeSession() {
+        console.log(`${this.name} is taking the session`);
+    }
+}
+
+var instruct1 = new Instructor('Mallikarjun', 40);
+instruct1.pass();
+instruct1.home().fn();
+
+console.log("Call by value & call by reference in JS *******************************************");
+
+var a = 10;
+var b = a;
+console.log(a); //10
+console.log(b); //10;
+a = 20;
+console.log(a); //20
+console.log(b); //10;
+
+var arr1 = [10, 20];
+var arr2 = arr1;
+console.log(arr1); //[10,20]
+console.log(arr2); //[10,20]
+arr1[0] = 100;
+console.log(arr1); //[100,20]
+console.log(arr2); //[100,20]
+
+var obj1 = {
+    name: "mallik",
+    rollno: 100
+}
+var obj2 = obj1;
+console.log(obj1);//{name: 'mallik', rollno: 100}
+console.log(obj2);//{name: 'mallik', rollno: 100}
+obj1.name = 'Arjun';
+console.log(obj1);//{name: 'Arjun', rollno: 100}
+console.log(obj2);//{name: 'Arjun', rollno: 100}
+
+console.log("we can do pass by value in objects with the help of (...) spread operator ************");
+// in-case if we have 100 key-value props & we want to change only 1 or 2 props among 100 properties
+// then in that case this trick useful
+var obj3 = {
+    name: "Mallikarjun",
+    roll: 30,
+    //.... if 100 more props
+}
+var obj4 = {
+    ...obj3,// copys the "property:value" only not reference
+    name: "Dodamani" // modifying the value
+}
+
+console.log(obj3);
+console.log(obj4);
+
+
+
