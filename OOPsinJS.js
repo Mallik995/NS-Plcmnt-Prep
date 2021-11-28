@@ -39,15 +39,26 @@ stud1.home().fn(); // this is bit tricky please observe this carefully
 
 // Inheritance
 console.log("Inheritance in JS ****************************************************** ");
+// if you write constructor in child class then super should be the firstline written to access and initialise the parents variable.
+// with the help of "super" we can access methods too.
+// if you dont write child-constructor then direcly you can create the object and further can access methods
 class Instructor extends Student {
+    constructor(name, age, designation) {
+        super(name, age);
+        this.designation = designation;
+        console.log("child constructor.....");
+    }
     takeSession() {
-        console.log(`${this.name} is taking the session`);
+        console.log(`${this.name} is taking the session....`);
+        super.run();
     }
 }
 
-var instruct1 = new Instructor('Mallikarjun', 40);
+var instruct1 = new Instructor('Mallikarjun', 40, "senior-Faculty");
+console.log(instruct1); // to see what its holding
 instruct1.pass();
 instruct1.home().fn();
+instruct1.takeSession();
 
 console.log("Call by value & call by reference in JS *******************************************");
 
